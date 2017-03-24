@@ -1,8 +1,12 @@
----
 ## Default Logstash configuration from logstash-docker.
 ## from https://github.com/elastic/logstash-docker/blob/master/build/logstash/config/logstash.yml
 #
 http.host: "0.0.0.0"
+
+#config.debug: true
+
+log.level: debug
+path.logs: /var/log/logstash/
 
 ## Disable X-Pack
 ## see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
@@ -10,5 +14,5 @@ http.host: "0.0.0.0"
 #
 xpack.monitoring.enabled: true
 
-xpack.monitoring.elasticsearch.username: logstash_system
-xpack.monitoring.elasticsearch.password: changeme
+xpack.monitoring.elasticsearch.url: "http://elasticsearch:9200"
+xpack.monitoring.elasticsearch.username: changeme
